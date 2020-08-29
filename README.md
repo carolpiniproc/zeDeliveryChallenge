@@ -8,7 +8,8 @@ E2E automation test. Using Java + Selenium + Junit + Cucumber
 4 - Framework : [frameworkWebAutomation](https://github.com/carolpiniproc/frameworkWebAutomation)  
 
 ### Steps
-mvn test
+run "mvn test" to execute the test which are on Runner Test File
+run "mvn verify" to generate the reports and after that check them on target/reports/cucumber-html-reports 
 ___________________________________________________
 #### Identify critical flows
 - [x] Flow #1 : Select address and register it   
