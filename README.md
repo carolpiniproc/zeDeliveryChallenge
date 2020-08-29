@@ -12,8 +12,8 @@ mvn test
 ___________________________________________________
 #### Identify critical flows
 - [x] Flow #1 : Select address and register it   
-Flow #2 : Search product and add to the shopping cart  
-Flow #3 : Choose payment method and finish order process 
+- [ ] Flow #2 : Search product and add to the shopping cart  
+- [ ] Flow #3 : Choose payment method and finish order process 
 ___________________________________________________
 
 Flow #1 : Select address and register it 
