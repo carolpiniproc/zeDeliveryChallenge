@@ -1,22 +1,31 @@
 package pages;
 
 import mappers.AddressMap;
+import org.openqa.selenium.Keys;
+import settings.Driver;
+import settings.Elements;
+
+import static java.lang.Thread.*;
 
 public class AddressPage {
     AddressMap addressMap = new AddressMap();
 
-    public void setMaior() {
-        addressMap.age18.waitVisibleElement().click();
-        addressMap.sayAddress.click();
+    public void setAllowedToDrink() {
+        addressMap.age18.click();
     }
 
-    public void setMenor() {
-        addressMap.minor18.waitVisibleElement().click();
+    public void setNotAllowedToDrink() {
+        addressMap.minor18.click();
     }
 
-    public void setAddress(CharSequence... value) {
+    public void allowCookies(){
+        addressMap.cookies.waitVisibleElement().click();
+    }
+
+    public void setAddress(String value) {
+        addressMap.clickInputAddress.click();
         addressMap.inputAddress.sendKeys(value);
-        addressMap.selectAddress.click();
+        addressMap.selectAddress.waitVisibleElement().click();
     }
 
     public void setNumber(CharSequence... value) {
@@ -32,8 +41,8 @@ public class AddressPage {
     }
 
     public void setAddressType(CharSequence... value) {
-        addressMap.addressType.sendKeys(value);
-        addressMap.addressType.click();
+        addressMap.addressTypeHome.sendKeys(value);
+        addressMap.addressTypeHome.click();
     }
 
     public void clickSeeProducts() {
@@ -41,15 +50,19 @@ public class AddressPage {
     }
 
     public String checkAddress(){
-        return addressMap.checkInputAddress.getText();
+        addressMap.checkInputAddress.waitVisibleElement();
+        return addressMap.checkInputAddress.getAttribute("value");
     }
 
-    public String checkSavedAddress(){
+    public String checkSavedAddress(String value) throws InterruptedException {
+        addressMap.checkSavedAddress.waitVisibleElement();
+        Thread.sleep(5000);
         return addressMap.checkSavedAddress.getText();
     }
 
-    public String checkMinorMessage(){
-        return addressMap.minorMessage.getText();
+    public boolean checkMinorMessage(){
+        addressMap.minorMessage.waitVisibleElement();
+        return addressMap.minorMessage.isDisplayed();
     }
 
 }
